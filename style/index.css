@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    top: 20px;
+    text-align: center;
+}
+
+.shopping-cart-all {
+    margin-top: 20px;
+}
+
+table {
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table tr th,
+td {
+    border: 1px solid rgb(219, 216, 216);
+    padding: 15px;
+}
+
+table tr th {
+    background-color: rgb(238, 238, 238);
+}
+
+.total {
+    text-align: right;
+}
+
+text {
+    padding: 12px;
+}
+
+.product-number {
+    padding: 6px;
+}
+
+.button {
+    width: 20px;
+    height: 20px;
+}
+
+.check-all {
+    margin-left: 5px;
+}
