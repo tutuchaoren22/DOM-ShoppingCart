@@ -3,15 +3,16 @@
     padding: 0;
 }
 
-.container {
+.main {
     position: relative;
     width: 600px;
     margin: 0 auto;
     top: 20px;
     text-align: center;
+    font-family: monospace;
 }
 
-.shopping-cart-all {
+.shoppingCart {
     margin-top: 20px;
 }
 
@@ -35,11 +36,7 @@ table tr th {
     text-align: right;
 }
 
-text {
-    padding: 12px;
-}
-
-.product-number {
+.subtotalCount {
     padding: 6px;
 }
 
@@ -48,6 +45,6 @@ text {
     height: 20px;
 }
 
-.check-all {
+.checkAll {
     margin-left: 3px;
 }

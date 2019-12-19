@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="main">
         <h1>文具店购物车</h1>
-        <div class="shopping-cart-all">
-            <table id="shopping-cart-table">
+        <div class="shoppingCart">
+            <table id="shoppingList">
                 <tr>
                     <th>选择</th>
                     <th>商品名称</th>
@@ -23,10 +23,10 @@
                     <th>总价（￥）</th>
                 </tr>
                 <tr>
-                    <td>全选<input class="check-all" type="checkbox" name="check-all" id="check-all"></td>
+                    <td>全选<input class="checkAll" type="checkbox" name="checkAll" id="checkAll"></td>
                     <td colspan="4" class="total">
                         <div>
-                            共计<span id="numOfGoods">0</span>件商品，<span id="priceOfGoods">0</span>￥
+                            共计<span class="totalCount">0</span>件商品，<span class="totalPrice">0</span>￥
                         </div>
                     </td>
                 </tr>
