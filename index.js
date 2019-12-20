@@ -133,7 +133,7 @@ window.onload = function() {
         var n1 = 0;
         var n2 = 0;
         for (var i = 0; i < checkOne.length; i++) {
-            if (checkOne[i].checked == true) {
+            if (checkOne[i].checked) {
                 n1 += parseInt(subtotalCount[i].innerHTML);
                 n2 += parseFloat(subtotalPrice[i].innerHTML);
             }
@@ -145,7 +145,7 @@ window.onload = function() {
     function isAllSelected() {
         var isAllSelected = true;
         for (var i = 0; i < checkOne.length; i++) {
-            if (checkOne[i].checked == false) {
+            if (!checkOne[i].checked) {
                 isAllSelected = false;
                 break;
             }
