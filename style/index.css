@@ -6,10 +6,9 @@
 .main {
     position: relative;
     width: 600px;
-    margin: 0 auto;
     top: 20px;
+    margin: 0 auto;
     text-align: center;
-    font-family: monospace;
 }
 
 .shoppingCart {
@@ -18,8 +17,8 @@
 
 table {
     margin: 0 auto;
-    text-align: center;
     border-collapse: collapse;
+    text-align: center;
 }
 
 table tr th,

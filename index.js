@@ -1,5 +1,4 @@
 window.onload = function() {
-    // 商品列表 JSON 数据
     var cartProducts = [{
             "id": 1,
             "name": "英雄牌 钢笔",
@@ -43,12 +42,10 @@ window.onload = function() {
             "checked": false
         }
     ];
-    // 读取商品列表，并增加节点到表格中
-    var table = document.getElementById("shoppingList");
-    //将JSON中的数据以新的节点方式加入购物车
+    var tableBody = document.getElementsByTagName("tbody")[0];
     (function loadJsonData() {
         for (var i = 0, len = cartProducts.length; i <= len; i++) {
-            var row = table.insertRow(table.rows.length - 1); //增加一行
+            var row = tableBody.insertRow(tableBody.length);
             var product = cartProducts[i];
             for (var j = 0, len = document.getElementsByTagName('th').length; j < len; j++) {
                 var col = row.insertCell(j);
@@ -56,61 +53,53 @@ window.onload = function() {
             }
         }
     })();
-
     var checkOne = document.getElementsByClassName("checkOne");
     var subtotalPrice = document.getElementsByClassName("subtotalPrice");
     var perPrice = document.getElementsByClassName("perPrice");
     var subtotalCount = document.getElementsByClassName("subtotalCount");
     var totalCount = document.getElementsByClassName("totalCount")[0];
     var totalPrice = document.getElementsByClassName("totalPrice")[0];
-    //计算总价
-    count(); //计算每一行的总价
-    countAll(); //计算购物车的总价
-    // 更新选择框
-    // 更新全选
+    count();
+    countAll();
     var checkAll = document.getElementById("checkAll");
-    checkAll.onclick = function() {
-        for (var i = 0; i < checkOne.length; i++) {
-            checkOne[i].checked = this.checked;
-        }
-        checkAll.checked = this.checked;
-        countAll();
-    };
-    // 更新单选
-    for (var i = 0; i < checkOne.length; i++) {
-        checkOne[i].onclick = function() {
+    tableBody.addEventListener("click", function(event) {
+        if (event.target.className === "checkOne") {
             if (isAllSelected()) {
                 checkAll.checked = true;
             } else {
                 checkAll.checked = false;
             }
             countAll();
-        }
-    }
-    //更新商品数量
-    var buttonDecrease = document.getElementsByClassName("buttonDecrease");
-    var buttonIncrease = document.getElementsByClassName("buttonIncrease");
-    for (var i = 0; i < buttonDecrease.length; i++) {
-        buttonDecrease[i].onclick = function() {
-            var num = parseInt(this.parentNode.childNodes[1].innerHTML);
+        } else if (event.target.className === "button buttonDecrease") {
+            var num = parseInt(event.target.nextElementSibling.innerHTML);
             num -= 1;
             if (num > 0) {
-                this.parentNode.childNodes[1].innerHTML = num;
+                event.target.nextElementSibling.innerHTML = num;
             } else {
-                this.parentNode.parentNode.remove();
+                event.target.parentNode.parentNode.remove();
             }
             count();
             countAll();
-        };
-        buttonIncrease[i].onclick = function() {
-            var num = parseInt(this.parentNode.childNodes[1].innerHTML);
+        } else if (event.target.className === "button buttonIncrease") {
+            var num = parseInt(event.target.previousElementSibling.innerHTML);
             num += 1;
-            this.parentNode.childNodes[1].innerHTML = num;
+            event.target.previousElementSibling.innerHTML = num;
             count();
             countAll();
-        };
-    }
-    //相关函数
+        }
+    });
+    var tableFoot = document.getElementsByTagName("tfoot")[0];
+    tableFoot.addEventListener("click", function(event) {
+        if (event.target.className === "checkAll") {
+            for (var i = 0; i < checkOne.length; i++) {
+                checkOne[i].checked = event.target.checked;
+            }
+            checkAll.checked = event.target.checked;
+            countAll();
+        }
+    });
+
+
     function addElement(element, product, num) {
         switch (num) {
             case (0):
