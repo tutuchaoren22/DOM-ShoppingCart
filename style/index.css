@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.shoppingCart {
+.shopping-cart {
     margin-top: 20px;
 }
 
@@ -35,7 +35,7 @@ table tr th {
     text-align: right;
 }
 
-.subtotalCount {
+.subtotal-count {
     padding: 6px;
 }
 
@@ -44,6 +44,6 @@ table tr th {
     height: 20px;
 }
 
-.checkAll {
+.check-all {
     margin-left: 3px;
 }
