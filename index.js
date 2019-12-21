@@ -67,7 +67,7 @@ tableBody.addEventListener('click', function(event) {
     }
 });
 tableFoot.addEventListener('click', function(event) {
-    if (event.target.className === 'check-all') {
+    if ('check-all' === event.target.className) {
         checkAllEvent(event);
     }
 });
