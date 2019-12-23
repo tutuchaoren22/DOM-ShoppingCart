@@ -54,9 +54,10 @@ loadJsonData();
 count();
 countAll();
 tableBody.addEventListener('click', function(event) {
-    switch (event.target.className) {
+    var eventTarget = event.target;
+    switch (eventTarget.className) {
         case 'check-one':
-            checkOneEvent(event);
+            checkOneEvent();
             break;
         case 'button button-decrease':
             buttonDecreaseEvent(event);
@@ -67,7 +68,8 @@ tableBody.addEventListener('click', function(event) {
     }
 });
 tableFoot.addEventListener('click', function(event) {
-    if ('check-all' === event.target.className) {
+    var eventTarget = event.target;
+    if ('check-all' === eventTarget.className) {
         checkAllEvent(event);
     }
 });
@@ -137,26 +139,28 @@ function isAllSelected() {
 }
 
 function buttonDecreaseEvent(event) {
-    var productCount = parseInt(event.target.nextElementSibling.innerHTML);
+    var eventTarget = event.target;
+    var productCount = parseInt(eventTarget.nextElementSibling.innerHTML);
     productCount -= 1;
     if (productCount > 0) {
-        event.target.nextElementSibling.innerHTML = productCount;
+        eventTarget.nextElementSibling.innerHTML = productCount;
     } else {
-        event.target.parentNode.parentNode.remove();
+        eventTarget.parentNode.parentNode.remove();
     }
     count();
     countAll();
 }
 
 function buttonIncreaseEvent(event) {
-    var productCount = parseInt(event.target.previousElementSibling.innerHTML);
+    var eventTarget = event.target;
+    var productCount = parseInt(eventTarget.previousElementSibling.innerHTML);
     productCount += 1;
-    event.target.previousElementSibling.innerHTML = productCount;
+    eventTarget.previousElementSibling.innerHTML = productCount;
     count();
     countAll();
 }
 
-function checkOneEvent(event) {
+function checkOneEvent() {
     if (isAllSelected()) {
         checkAll.checked = true;
     } else {
@@ -166,9 +170,10 @@ function checkOneEvent(event) {
 }
 
 function checkAllEvent(event) {
+    var eventTarget = event.target;
     for (var i = 0, len = checkOne.length; i < len; i++) {
-        checkOne[i].checked = event.target.checked;
+        checkOne[i].checked = eventTarget.checked;
     }
-    checkAll.checked = event.target.checked;
+    checkAll.checked = eventTarget.checked;
     countAll();
 }
