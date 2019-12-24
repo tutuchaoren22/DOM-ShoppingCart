@@ -161,11 +161,7 @@ function buttonIncreaseEvent(event) {
 }
 
 function checkOneEvent() {
-    if (isAllSelected()) {
-        checkAll.checked = true;
-    } else {
-        checkAll.checked = false;
-    }
+    checkAll.checked = isAllSelected();
     countAll();
 }
 
